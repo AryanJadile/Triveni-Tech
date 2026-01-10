@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Triveni Tech - Digital Solutions
 
-## Getting Started
+Welcome to the official repository for the **Triveni Tech** website. This project is a modern, high-performance web application built to showcase Triveni Tech's digital services, internship programs, and company vision.
 
-First, run the development server:
+![Triveni Tech Banner](/public/img/logo.jpg)
+
+## 🚀 Overview
+
+Triveni Tech is a premier digital solutions agency based in Pune, specialized in Web Development, App Development, and Digital Marketing. This website serves as the primary touchpoint for clients and students looking for internships.
+
+The application is built using **Next.js 16 (App Router)** and **Tailwind CSS**, ensuring a fast, SEO-friendly, and responsive user experience.
+
+## ✨ Key Features
+
+-   **Modern Branding**: Custom color palette and typography aligned with Triveni Tech's brand identity.
+-   **Responsive Design**: Fully optimized for mobile, tablet, and desktop devices.
+-   **Global Animations**: Smooth scroll-reveal animations and hover effects using **Framer Motion**.
+-   **Internship Portal**: Dedicated section for the 2026 Internship Program with program details and tech stack.
+-   **Services Showcase**: Interactive cards displaying core services like MERN Stack, Java, Python, and Data Science.
+-   **Company Info**: Comprehensive 'About Us' and 'Contact' pages with centralized layout and easy navigation.
+
+## 🛠️ Tech Stack
+
+-   **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
+-   **Library**: [React 19](https://react.dev/)
+-   **Styling**: [Tailwind CSS 3](https://tailwindcss.com/)
+-   **Animations**: [Framer Motion](https://www.framer.com/motion/)
+-   **Icons**: [Lucide React](https://lucide.dev/)
+-   **Utilities**: `clsx` and `tailwind-merge` for dynamic class management.
+
+## 📦 Installation & Getting Started
+
+Follow these steps to set up the project locally:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/yourusername/triveni-tech-web.git
+    cd triveni-tech-web
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    # or
+    yarn install
+    # or
+    pnpm install
+    ```
+
+3.  **Run the development server:**
+    ```bash
+    npm run dev
+    ```
+
+4.  **Open your browser:**
+    Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
+
+## 📂 Project Structure
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+src/
+├── app/                  # Next.js App Router (Pages & Layouts)
+│   ├── about/            # About Us page
+│   ├── contact/          # Contact page
+│   ├── internships/      # Internships page
+│   ├── globals.css       # Global styles & Tailwind directives
+│   ├── layout.tsx        # Root layout (Header/Footer wrapper)
+│   └── page.tsx          # Home page
+├── components/
+│   ├── home/             # Home page specific components (Hero, Services)
+│   ├── layout/           # Global layout components (Header, Footer)
+│   ├── services/         # Service card components
+│   └── ui/               # Reusable UI components (ScrollReveal, etc.)
+└── lib/                  # Utility functions (cn, etc.)
+public/
+└── img/                  # Static assets (Logos, images)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Customization
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Colors
+The color palette is defined in `src/app/globals.css` using CSS variables:
+-   `--primary`: Bright Royal Blue (Highlights, Buttons)
+-   `--secondary`: Deep Navy Blue (Backgrounds, Text)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Animations
+Animations are managed via the reusable `<ScrollReveal />` and `<PopIn />` components found in `src/components/ui/ScrollReveal.tsx`.
 
-## Learn More
+## 📜 License
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+© 2026 Triveni Tech. All rights reserved.
