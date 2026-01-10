@@ -1,6 +1,14 @@
 import HeroSection from "@/components/home/HeroSection";
 import ServicesSection from "@/components/home/ServicesSection";
 
+/**
+ * Home Page
+ *
+ * The landing page of the application, assembling key sections:
+ * - HeroSection: Introduction and CTAs
+ * - ServicesSection: Grid of services offered
+ * - Call to Action: Final prompt for user engagement
+ */
 export default function Home() {
   return (
     <div className="flex flex-col gap-0">

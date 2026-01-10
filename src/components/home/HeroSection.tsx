@@ -4,6 +4,16 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Code, Rocket, Smartphone } from "lucide-react";
 
+/**
+ * HeroSection Component
+ *
+ * The main landing area of the Home page.
+ * Features:
+ * - Animated text entrance using Framer Motion
+ * - Background decorative bobs (gradients)
+ * - Primary Call-to-Actions (CTAs)
+ * - Quick feature highlights (Web, App, Marketing)
+ */
 export default function HeroSection() {
     return (
         <section className="relative overflow-hidden bg-slate-50 py-20 lg:py-32">

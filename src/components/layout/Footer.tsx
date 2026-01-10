@@ -1,6 +1,16 @@
 import Link from "next/link";
 import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 
+/**
+ * Footer Component
+ *
+ * This component renders the site-wide footer including:
+ * - Brand information and social links
+ * - Quick navigation links
+ * - Service links
+ * - Contact information
+ * - Copyright and legal links
+ */
 export default function Footer() {
     return (
         <footer className="bg-secondary text-slate-200 pt-16 pb-8">

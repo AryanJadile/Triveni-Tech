@@ -6,6 +6,10 @@ import { Menu, X, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
+/**
+ * Navigation Items Configuration
+ * Centralized list of links used in both Desktop and Mobile navigation.
+ */
 const navItems = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
@@ -14,15 +18,34 @@ const navItems = [
     { name: "Contact", href: "/contact" },
 ];
 
+/**
+ * Header Component
+ *
+ * This component renders the main navigation bar of the application.
+ * It includes:
+ * - Responsive design (Desktop vs Mobile menu)
+ * - Scroll-aware background styling (transparent to white/glassmorphism)
+ * - Logo and Brand Name
+ * - Navigation Links
+ * - "Get Started" Call-to-Action
+ */
 export default function Header() {
+    // State to track if the user has scrolled down to apply styles
     const [isScrolled, setIsScrolled] = useState(false);
+    // State to toggle the mobile menu visibility
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+    /**
+     * Scroll Effect Hook
+     * Adds a scroll listener to update the `isScrolled` state when the user scrolls past 10px.
+     * This triggers the background color change in the header.
+     */
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 10);
         };
         window.addEventListener("scroll", handleScroll);
+        // Clean up the event listener on component unmount
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 

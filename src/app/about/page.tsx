@@ -4,6 +4,18 @@ import { motion } from "framer-motion";
 import { CheckCircle2, Globe, Lightbulb, Users } from "lucide-react";
 import { ScrollReveal, PopIn } from "@/components/ui/ScrollReveal";
 
+/**
+ * About Page
+ *
+ * Displays detailed information about Triveni Tech.
+ * Sections:
+ * - Who We Are: Company overview
+ * - Mission & Vision: Core values
+ * - Why Choose Us: Key differentiators
+ * - Stats: Numerical achievements
+ *
+ * Uses `ScrollReveal` for entrance animations on distinct sections.
+ */
 export default function AboutPage() {
     return (
         <div className="bg-white">

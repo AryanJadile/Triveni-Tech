@@ -2,6 +2,14 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
+/**
+ * ServiceCard Props
+ * @property {React.ReactNode} icon - Lucide-react icon component to display
+ * @property {string} title - Title of the service
+ * @property {string} description - Brief description of the service
+ * @property {string} [href] - Optional link to a detailed service page (default: "#")
+ * @property {string} [className] - Optional additional CSS classes
+ */
 interface ServiceCardProps {
     icon: React.ReactNode;
     title: string;
@@ -10,6 +18,16 @@ interface ServiceCardProps {
     className?: string;
 }
 
+/**
+ * ServiceCard Component
+ *
+ * A reusable card component for displaying a service.
+ * Includes hover effects for interaction:
+ * - Slight lift (-translate-y-1)
+ * - Shadow increase
+ * - Background gradient reveal
+ * - Icon color change
+ */
 export default function ServiceCard({ icon, title, description, href = "#", className }: ServiceCardProps) {
     return (
         <div className={cn("group p-8 bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative overflow-hidden", className)}>

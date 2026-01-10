@@ -4,6 +4,11 @@ import { Monitor, Smartphone, Palette, Megaphone, Server, Database, Code, Coffee
 import ServiceCard from "../services/ServiceCard";
 import { motion } from "framer-motion";
 
+/**
+ * List of Services
+ * Defines the content for each service card including icon, title, and description.
+ * This array drives the grid generation in the component.
+ */
 const services = [
     {
         icon: <Monitor size={32} />,
@@ -57,6 +62,13 @@ const services = [
     },
 ];
 
+/**
+ * ServicesSection Component
+ *
+ * Displays a grid of services offered by Triveni Tech.
+ * - Uses `framer-motion` for entrance animations (staggered fade-up).
+ * - Maps over the `services` array to render `ServiceCard` components.
+ */
 export default function ServicesSection() {
     return (
         <section id="services" className="py-20 bg-white">

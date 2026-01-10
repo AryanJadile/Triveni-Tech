@@ -5,6 +5,18 @@ import { CheckCircle2, Code, Laptop, UserCheck, Calendar, BookOpen } from "lucid
 import Link from "next/link";
 import { ScrollReveal, PopIn } from "@/components/ui/ScrollReveal";
 
+/**
+ * Internships Page
+ *
+ * dedicated landing page for the Internship Program 2026.
+ * Features:
+ * - Hero section with "Apply Now" CTA
+ * - Program highlights (Mentorship, Certificate, etc.)
+ * - Tech Stack grid showcasing technologies taught
+ * - Benefits section
+ *
+ * Utilizes `ScrollReveal` and `PopIn` for engaging visual presentation.
+ */
 export default function InternshipsPage() {
     return (
         <div className="bg-white">
