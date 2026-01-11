@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2, Code, Laptop, UserCheck, Calendar, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { ScrollReveal, PopIn } from "@/components/ui/ScrollReveal";
+import InternshipForm from "@/components/internships/InternshipForm";
 
 /**
  * Internships Page
@@ -29,7 +30,11 @@ export default function InternshipsPage() {
                         Join our comprehensive internship program designed for CS & IT students. Gain hands-on experience and mentorship from industry experts.
                     </p>
                     <Link
-                        href="/contact"
+                        href="#apply-form"
+                        onClick={(e) => {
+                            e.preventDefault();
+                            document.getElementById('apply-form')?.scrollIntoView({ behavior: 'smooth' });
+                        }}
                         className="inline-block px-8 py-3 bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
                     >
                         Apply Now
@@ -92,19 +97,8 @@ export default function InternshipsPage() {
                             <PopIn delay={0.3}><BenefitCard icon={<BookOpen size={32} />} title="Practical Experience" desc="Work on live projects to build a strong professional portfolio." /></PopIn>
                         </div>
                     </ScrollReveal>
-                    <div className="mt-16 p-8 bg-white rounded-2xl border border-slate-100 shadow-sm max-w-3xl mx-auto">
-                        <h3 className="text-2xl font-bold text-secondary mb-4">How to Apply?</h3>
-                        <p className="text-slate-600 mb-6">
-                            Send your CV or Cover Letter to our email below or call us for more information.
-                        </p>
-                        <div className="flex flex-col md:flex-row items-center justify-center gap-6">
-                            <div className="px-6 py-3 bg-slate-100 rounded-lg text-secondary font-medium">
-                                trivenitechai@gmail.com
-                            </div>
-                            <div className="px-6 py-3 bg-slate-100 rounded-lg text-secondary font-medium">
-                                +91 8087918306
-                            </div>
-                        </div>
+                    <div id="apply-form" className="mt-16 max-w-2xl mx-auto">
+                        <InternshipForm />
                     </div>
                 </div>
             </section>

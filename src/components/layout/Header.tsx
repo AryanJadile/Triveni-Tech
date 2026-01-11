@@ -13,7 +13,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navItems = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
-    { name: "Services", href: "#services" },
+    { name: "Services", href: "/#services" },
     { name: "Internships", href: "/internships" },
     { name: "Contact", href: "/contact" },
 ];
@@ -54,7 +54,7 @@ export default function Header() {
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
                 isScrolled
-                    ? "bg-white/80 backdrop-blur-md border-gray-200 py-3 shadow-sm"
+                    ? "bg-white border-gray-200 py-3 shadow-sm"
                     : "bg-transparent border-transparent py-5"
             )}
         >
@@ -65,7 +65,7 @@ export default function Header() {
                         <img src="/img/logo.jpg" alt="Triveni Tech Logo" className="object-cover w-full h-full" />
                     </div>
                     <span className="text-xl font-bold text-secondary tracking-tight">
-                        Triveni <span className="text-primary">Tech</span>
+                        Triveni Tech
                     </span>
                 </Link>
 

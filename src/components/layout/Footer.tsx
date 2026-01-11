@@ -26,7 +26,7 @@ export default function Footer() {
                         <div className="flex items-center gap-4 pt-2">
                             <SocialIcon icon={<Facebook size={18} />} href="#" />
                             <SocialIcon icon={<Twitter size={18} />} href="#" />
-                            <SocialIcon icon={<Instagram size={18} />} href="#" />
+                            <SocialIcon icon={<Instagram size={18} />} href="https://www.instagram.com/triveni_tech2025/" />
                             <SocialIcon icon={<Linkedin size={18} />} href="#" />
                         </div>
                     </div>
