@@ -194,6 +194,7 @@ export default function InternshipForm() {
                                             "Java Full Stack",
                                             "Python Development",
                                             "Data Science",
+                                            "Data Analytics",
                                             "AWS Cloud",
                                             "Mobile App Development (Flutter)"
                                         ].map((domain) => (
