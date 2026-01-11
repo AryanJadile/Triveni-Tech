@@ -12,6 +12,7 @@ export async function POST(req: NextRequest) {
         const phone = formData.get('phone') as string;
         const college = formData.get('college') as string;
         const domain = formData.get('domain') as string;
+        const coverLetter = formData.get('cover_letter') as string;
         const resumeFile = formData.get('resume') as File;
 
         if (!name || !email || !phone || !college || !domain || !resumeFile) {
@@ -44,6 +45,7 @@ export async function POST(req: NextRequest) {
                 phone,
                 college,
                 domain,
+                cover_letter: coverLetter,
                 resume_url: publicUrl,
             });
 
@@ -68,6 +70,8 @@ export async function POST(req: NextRequest) {
                     <p><strong>Phone:</strong> ${phone}</p>
                     <p><strong>College:</strong> ${college}</p>
                     <p><strong>Domain:</strong> ${domain}</p>
+                    <p><strong>Cover Letter:</strong></p>
+                    <p style="white-space: pre-wrap;">${coverLetter || "N/A"}</p>
                     <p><strong>Resume:</strong> <a href="${publicUrl}">Download Resume</a></p>
                     <br/>
                     <p><em>This application was submitted via the Triveni Tech website.</em></p>
