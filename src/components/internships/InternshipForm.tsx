@@ -31,11 +31,49 @@ export default function InternshipForm() {
         e.preventDefault();
         setIsLoading(true);
 
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        const form = e.target as HTMLFormElement;
+        const formData = new FormData();
+        formData.append("name", (form.elements.namedItem("name") as HTMLInputElement).value);
+        formData.append("email", (form.elements.namedItem("email") as HTMLInputElement).value);
+        formData.append("phone", (form.elements.namedItem("phone") as HTMLInputElement).value);
+        formData.append("college", (form.elements.namedItem("college") as HTMLInputElement).value);
+        formData.append("domain", selectedDomain);
+        formData.append("cover_letter", (form.elements.namedItem("cover_letter") as HTMLTextAreaElement).value);
 
-        setIsLoading(false);
-        setIsSuccess(true);
+        const fileInput = form.elements.namedItem("resume") as HTMLInputElement;
+        if (fileInput.files && fileInput.files[0]) {
+            formData.append("resume", fileInput.files[0]);
+        } else {
+            alert("Please upload your resume.");
+            setIsLoading(false);
+            return;
+        }
+
+        try {
+            const response = await fetch("/api/apply", {
+                method: "POST",
+                body: formData,
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.error || "Failed to submit application");
+            }
+
+            setIsSuccess(true);
+        } catch (error) {
+            console.error("Submission error:", error);
+            alert("Something went wrong. Please try again.");
+        } finally {
+            setIsLoading(false);
+        }
+    };
+    const resetForm = () => {
+        setFileName(null);
+        setSelectedDomain("");
+        setIsDropdownOpen(false);
+        setIsSuccess(false);
     };
 
     if (isSuccess) {
@@ -53,7 +91,7 @@ export default function InternshipForm() {
                     Thank you for your interest in Triveni Tech. We have received your details and will get back to you soon.
                 </p>
                 <button
-                    onClick={() => setIsSuccess(false)}
+                    onClick={resetForm}
                     className="px-6 py-2.5 bg-slate-100 text-slate-700 font-semibold rounded-lg hover:bg-slate-200 transition-colors"
                 >
                     Submit Another Application
@@ -180,45 +218,57 @@ export default function InternshipForm() {
                             )}
                         </AnimatePresence>
                     </div>
-                </div>
 
-                {/* Resume Upload */}
-                <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-1">Resume / CV</label>
-                    <div className="relative">
-                        <input
-                            type="file"
-                            id="resume"
-                            accept=".pdf,.doc,.docx"
-                            onChange={handleFileChange}
-                            required
-                            className="opacity-0 absolute inset-0 w-full h-full cursor-pointer z-10"
-                        />
-                        <div className="w-full px-4 py-4 rounded-lg border-2 border-dashed border-slate-300 hover:border-primary transition-colors flex items-center justify-center gap-2 text-slate-500 bg-slate-50">
-                            {fileName ? (
-                                <span className="text-secondary font-medium flex items-center gap-2">
-                                    <CheckCircle2 size={16} className="text-green-500" />
-                                    {fileName}
-                                </span>
-                            ) : (
-                                <>
-                                    <Upload size={20} />
-                                    <span>Upload Resume (PDF, DOCX)</span>
-                                </>
-                            )}
-                        </div>
+                    {/* Cover Letter */}
+                    <div>
+                        <label htmlFor="cover_letter" className="block text-sm font-medium text-slate-700 mb-1">Cover Letter / About Yourself</label>
+                        <textarea
+                            id="cover_letter"
+                            name="cover_letter"
+                            rows={4}
+                            className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none text-slate-900 resize-y"
+                            placeholder="Tell us a bit about yourself and why you're interested..."
+                        ></textarea>
                     </div>
-                    <p className="text-xs text-slate-400 mt-1">Max file size: 5MB</p>
-                </div>
 
-                {/* Submit Button */}
-                <button
-                    type="submit"
-                    disabled={isLoading}
-                    className="w-full mt-2 py-4 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
-                >
-                    {isLoading ? "Submitting..." : "Submit Application"}
-                </button>
+                    {/* Resume Upload */}
+                    <div>
+                        <label className="block text-sm font-medium text-slate-700 mb-1">Resume / CV</label>
+                        <div className="relative">
+                            <input
+                                type="file"
+                                id="resume"
+                                accept=".pdf,.doc,.docx"
+                                onChange={handleFileChange}
+                                required
+                                className="opacity-0 absolute inset-0 w-full h-full cursor-pointer z-10"
+                            />
+                            <div className="w-full px-4 py-4 rounded-lg border-2 border-dashed border-slate-300 hover:border-primary transition-colors flex items-center justify-center gap-2 text-slate-500 bg-slate-50">
+                                {fileName ? (
+                                    <span className="text-secondary font-medium flex items-center gap-2">
+                                        <CheckCircle2 size={16} className="text-green-500" />
+                                        {fileName}
+                                    </span>
+                                ) : (
+                                    <>
+                                        <Upload size={20} />
+                                        <span>Upload Resume (PDF, DOCX)</span>
+                                    </>
+                                )}
+                            </div>
+                        </div>
+                        <p className="text-xs text-slate-400 mt-1">Max file size: 5MB</p>
+                    </div>
+
+                    {/* Submit Button */}
+                    <button
+                        type="submit"
+                        disabled={isLoading}
+                        className="w-full mt-2 py-4 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    >
+                        {isLoading ? "Submitting..." : "Submit Application"}
+                    </button>
+                </div>
             </div>
         </form>
     );
