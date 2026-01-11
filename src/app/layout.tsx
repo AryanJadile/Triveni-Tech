@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Triveni Tech - Digital Solutions",
   description: "Web Development, App Development, and Digital Marketing Services.",
+  icons: {
+    icon: '/img/logo.jpg',
+  },
 };
 
 export default function RootLayout({
