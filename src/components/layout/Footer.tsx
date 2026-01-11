@@ -24,10 +24,8 @@ export default function Footer() {
                             We build scalable, robust, and beautiful digital experiences.
                         </p>
                         <div className="flex items-center gap-4 pt-2">
-                            <SocialIcon icon={<Facebook size={18} />} href="#" />
-                            <SocialIcon icon={<Twitter size={18} />} href="#" />
                             <SocialIcon icon={<Instagram size={18} />} href="https://www.instagram.com/triveni_tech2025/" />
-                            <SocialIcon icon={<Linkedin size={18} />} href="#" />
+                            <SocialIcon icon={<Linkedin size={18} />} href="https://www.linkedin.com/company/triveni-tech/" />
                         </div>
                     </div>
 
@@ -76,7 +74,7 @@ export default function Footer() {
                 </div>
 
                 <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500">
-                    <p>&copy; {new Date().getFullYear()} Triveni Tech. All rights reserved.</p>
+                    <p>&copy; 2025 Triveni Tech. All rights reserved.</p>
                     <div className="flex gap-6 mt-4 md:mt-0">
                         <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
                         <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
