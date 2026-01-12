@@ -2,17 +2,30 @@ import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 import { Resend } from 'resend';
 
+// Initialize Resend with the API key from environment variables
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+/**
+ * Contact Form API Handler
+ * 
+ * Handles POST requests from the contact form.
+ * 1. Validates input data.
+ * 2. Saves the message to Supabase database.
+ * 3. Sends an email notification to the admin using Resend.
+ * 
+ * @param req - The incoming request object containing name, email, and message.
+ * @returns JSON response indicating success or failure.
+ */
 export async function POST(req: NextRequest) {
     try {
         const { name, email, message } = await req.json();
 
+        // Validate required fields
         if (!name || !email || !message) {
             return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
         }
 
-        // 1. Insert into Database
+        // 1. Insert into Supabase Database for persistent storage
         const { error: dbError } = await supabase
             .from('contact_messages')
             .insert({
@@ -31,8 +44,10 @@ export async function POST(req: NextRequest) {
 
         if (adminEmail) {
             console.log("Attempting to send contact email to:", adminEmail);
+
+            // Send email to admin
             const { data, error } = await resend.emails.send({
-                from: 'Contact Form <onboarding@resend.dev>',
+                from: 'Contact Form <onboarding@resend.dev>', // Use verified domain in production
                 to: adminEmail,
                 replyTo: email,
                 subject: `New Contact Message from ${name}`,
@@ -49,6 +64,7 @@ export async function POST(req: NextRequest) {
             });
 
             if (error) {
+                // Log email error but don't fail the request since DB save was successful
                 console.error("Resend API Error (Non-blocking):", error);
             } else {
                 console.log("Email sent successfully:", data);

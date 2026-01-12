@@ -1,91 +1,139 @@
-# Triveni Tech - Digital Solutions
+# Triveni Tech - Web Application
 
-Welcome to the official repository for the **Triveni Tech** website. This project is a modern, high-performance web application built to showcase Triveni Tech's digital services, internship programs, and company vision.
+Welcome to the official repository for the Triveni Tech web application. This project is a modern, responsive, and high-performance website built to showcase our services, facilitate contact, and manage internship applications.
 
-![Triveni Tech Banner](/public/img/logo.jpg)
+## 🚀 Technology Stack
 
-## 🚀 Overview
+This project is built using a cutting-edge stack focused on performance, scalability, and developer experience:
 
-Triveni Tech is a premier digital solutions agency based in Pune, specialized in Web Development, App Development, and Digital Marketing. This website serves as the primary touchpoint for clients and students looking for internships.
+### Core Framework
+- **Next.js 16 (App Router)**: The latest version of the React framework, utilizing Server Components for optimal performance and SEO.
+- **React 19**: The latest React library for building interactive user interfaces.
+- **TypeScript**: Ensures type safety and code maintainability across the entire codebase.
 
-The application is built using **Next.js 16 (App Router)** and **Tailwind CSS**, ensuring a fast, SEO-friendly, and responsive user experience.
+### Styling & UI
+- **Tailwind CSS 3**: A utility-first CSS framework for rapid and responsive UI development.
+- **Tailwind Merge & CLSX**: For efficient and conflict-free class name construction.
+- **Lucide React**: A beautiful and consistent icon set.
+- **Framer Motion**: (If used) For smooth and complex animations.
 
-## ✨ Key Features
+### Backend & Database
+- **Supabase**: An open-source Firebase alternative providing a Postgres database, Authentication, and Storage.
+  - Required for storing contact messages and internship applications.
+  - Storage is used for hosting uploaded resumes.
+- **Resend**: A developer-centric email API for sending transactional emails (Contact form notifications & Application alerts).
 
--   **Modern Branding**: Custom color palette and typography aligned with Triveni Tech's brand identity.
--   **Responsive Design**: Fully optimized for mobile, tablet, and desktop devices.
--   **Global Animations**: Smooth scroll-reveal animations and hover effects using **Framer Motion**.
--   **Internship Portal**: Dedicated section for the 2026 Internship Program with program details and tech stack.
--   **Services Showcase**: Interactive cards displaying core services like MERN Stack, Java, Python, and Data Science.
--   **Company Info**: Comprehensive 'About Us' and 'Contact' pages with centralized layout and easy navigation.
+## 🛠️ Getting Started
 
-## 🛠️ Tech Stack
+Follow these steps to set up the project locally.
 
--   **Framework**: [Next.js 16](https://nextjs.org/) (App Router)
--   **Library**: [React 19](https://react.dev/)
--   **Styling**: [Tailwind CSS 3](https://tailwindcss.com/)
--   **Animations**: [Framer Motion](https://www.framer.com/motion/)
--   **Icons**: [Lucide React](https://lucide.dev/)
--   **Utilities**: `clsx` and `tailwind-merge` for dynamic class management.
+### Prerequisites
+- Node.js 18+ installed.
+- Git installed.
 
-## 📦 Installation & Getting Started
-
-Follow these steps to set up the project locally:
+### Installation
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/triveni-tech-web.git
+    git clone https://github.com/your-username/triveni-tech-web.git
     cd triveni-tech-web
     ```
 
 2.  **Install dependencies:**
     ```bash
     npm install
-    # or
-    yarn install
-    # or
-    pnpm install
     ```
 
-3.  **Run the development server:**
+3.  **Environment Setup:**
+    Create a `.env.local` file in the root directory. You will need to populate this with your own API keys.
     ```bash
-    npm run dev
+    cp .env.example .env.local
+    # If .env.example doesn't exist, just create .env.local
     ```
 
-4.  **Open your browser:**
-    Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
+## 🔑 API Keys & Configuration
 
-## 📂 Project Structure
+To make the application fully functional, you must configure the following services.
 
-```bash
-src/
-├── app/                  # Next.js App Router (Pages & Layouts)
-│   ├── about/            # About Us page
-│   ├── contact/          # Contact page
-│   ├── internships/      # Internships page
-│   ├── globals.css       # Global styles & Tailwind directives
-│   ├── layout.tsx        # Root layout (Header/Footer wrapper)
-│   └── page.tsx          # Home page
-├── components/
-│   ├── home/             # Home page specific components (Hero, Services)
-│   ├── layout/           # Global layout components (Header, Footer)
-│   ├── services/         # Service card components
-│   └── ui/               # Reusable UI components (ScrollReveal, etc.)
-└── lib/                  # Utility functions (cn, etc.)
-public/
-└── img/                  # Static assets (Logos, images)
+### 1. Supabase (Database & Storage)
+You need a Supabase project to store data.
+1. Create a project at [supabase.com](https://supabase.com).
+2. Get your project URL and Anon Key from **Project Settings > API**.
+3. Create two tables: `contact_messages` and `internship_applications`.
+4. Create a storage bucket named `resumes`.
+
+Update your `.env.local`:
+```env
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
 
-## 🎨 Customization
+### 2. Resend (Email Service)
+We use Resend to send email notifications when someone contacts you or applies for an internship.
 
-### Colors
-The color palette is defined in `src/app/globals.css` using CSS variables:
--   `--primary`: Bright Royal Blue (Highlights, Buttons)
--   `--secondary`: Deep Navy Blue (Backgrounds, Text)
+**Important:** The current API keys in the project will be removed. You **MUST** create your own Resend account.
 
-### Animations
-Animations are managed via the reusable `<ScrollReveal />` and `<PopIn />` components found in `src/components/ui/ScrollReveal.tsx`.
+#### Step-by-Step Guide:
+1.  **Create an Account**: Go to [resend.com](https://resend.com) and sign up.
+2.  **Get API Key**:
+    -   Navigate to **API Keys** in the dashboard.
+    -   Click **Create API Key**.
+    -   Name it (e.g., "Triveni Tech Web").
+    -   Copy the key (it starts with `re_`).
+3.  **Verify Domain (Recommended)**:
+    -   For production, you should verify your domain (e.g., `trivenitech.com`) in the **Domains** tab to send emails from your own address (e.g., `contact@trivenitech.com`).
+    -   **Development/Testing**: If you don't have a domain yet, you can use the default testing email `onboarding@resend.dev` (this works for testing but has limitations, like only sending to your own email).
+4.  **Update Environment Variables**:
+    Add the key and your admin email to `.env.local`.
 
-## 📜 License
+```env
+# Your Resend API Key
+RESEND_API_KEY=re_123456789_abcdefg
 
-© 2026 Triveni Tech. All rights reserved.
+# The email address where you want to receive notifications
+ADMIN_EMAIL=your_personal_email@example.com
+```
+
+## 🏃‍♂️ Running the Project
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## 📁 Project Structure
+
+```
+├── src/
+│   ├── app/                 # Next.js App Router pages and API routes
+│   │   ├── api/             # Backend API endpoints (contact, apply)
+│   │   ├── contact/         # Contact page
+│   │   ├── careers/         # Careers/Internship page
+│   │   ├── layout.tsx       # Root layout (Header, Footer)
+│   │   └── page.tsx         # Home page
+│   ├── components/          # Reusable UI components
+│   │   ├── layout/          # Header, Footer components
+│   │   └── home/            # Home page specific sections
+│   └── lib/                 # Utility functions and configurations (Supabase client)
+├── public/                  # Static assets (images, icons)
+├── .env.local               # Environment variables (do not commit)
+├── next.config.ts           # Next.js configuration
+└── tailwind.config.ts       # Tailwind CSS configuration
+```
+
+## 📝 Code Optimization & Readability
+- The codebase uses semantic HTML and standard React patterns.
+- **Comments**: Key complex logic (especially in API routes) is documented with JSDoc comments.
+- **Type Safety**: TypeScript interfaces are used to ensure data consistency.
+
+## 🚀 Deployment
+
+The easiest way to deploy your Next.js app is using the Vercel Platform from the creators of Next.js.
+
+1. Push your code to GitHub.
+2. Import the project into Vercel.
+3. Add your Environment Variables (`RESEND_API_KEY`, etc.) in the Vercel Project Settings.
+4. Deploy!

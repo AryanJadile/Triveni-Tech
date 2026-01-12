@@ -2,8 +2,21 @@ import { NextRequest, NextResponse } from 'next/server';
 import { supabase } from '@/lib/supabase';
 import { Resend } from 'resend';
 
+// Initialize Resend
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+/**
+ * Internship Application API Handler
+ * 
+ * Handles POST requests for internship applications.
+ * 1. Parses FormData (includes file upload).
+ * 2. Uploads resume to Supabase Storage.
+ * 3. Saves application details to Supabase Database.
+ * 4. Sends an email notification to the admin via Resend.
+ * 
+ * @param req - The incoming request object containing form data.
+ * @returns JSON response indicating success or failure.
+ */
 export async function POST(req: NextRequest) {
     try {
         const formData = await req.formData();
@@ -15,13 +28,16 @@ export async function POST(req: NextRequest) {
         const coverLetter = formData.get('cover_letter') as string;
         const resumeFile = formData.get('resume') as File;
 
+        // Validate all required fields
         if (!name || !email || !phone || !college || !domain || !resumeFile) {
             return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
         }
 
         // 1. Upload Resume to Supabase Storage
+        // Generate a unique filename to prevent overwrites
         const fileExt = resumeFile.name.split('.').pop();
         const fileName = `${Date.now()}_${name.replace(/\s+/g, '_')}.${fileExt}`;
+
         const { data: uploadData, error: uploadError } = await supabase.storage
             .from('resumes')
             .upload(fileName, resumeFile);
@@ -31,12 +47,12 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ error: 'Failed to upload resume' }, { status: 500 });
         }
 
-        // Get Public URL
+        // Get Public URL for the uploaded resume
         const { data: { publicUrl } } = supabase.storage
             .from('resumes')
             .getPublicUrl(fileName);
 
-        // 2. Insert into Database
+        // 2. Insert Application Data into Database
         const { error: dbError } = await supabase
             .from('internship_applications')
             .insert({
@@ -59,8 +75,10 @@ export async function POST(req: NextRequest) {
 
         if (adminEmail) {
             console.log("Attempting to send email to:", adminEmail);
+
+            // Send email notification
             const { data, error } = await resend.emails.send({
-                from: 'Internship Applications <onboarding@resend.dev>',
+                from: 'Internship Applications <onboarding@resend.dev>', // Use verified domain in production
                 to: adminEmail,
                 subject: `New Internship Application: ${name} (${domain})`,
                 html: `
