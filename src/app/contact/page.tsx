@@ -52,13 +52,13 @@ export default function ContactPage() {
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
                     {/* Quote Calculator */}
-                    <div className="space-y-8">
+                    <div className="h-full">
                         <QuoteCalculator />
                     </div>
 
                     {/* Contact Form */}
-                    <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100">
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="bg-white p-8 pb-28 rounded-2xl shadow-sm border border-slate-100 h-full relative">
+                        <form onSubmit={handleSubmit} className="space-y-6 h-full">
                             <div>
                                 <label className="block text-sm font-medium text-slate-700 mb-2">Name</label>
                                 <input
@@ -79,7 +79,7 @@ export default function ContactPage() {
                                     suppressHydrationWarning
                                 />
                             </div>
-                            <div>
+                            <div className="mb-4">
                                 <label className="block text-sm font-medium text-slate-700 mb-2">Message</label>
                                 <textarea
                                     required
@@ -93,7 +93,7 @@ export default function ContactPage() {
                             <button
                                 type="submit"
                                 disabled={isLoading}
-                                className="w-full py-4 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                                className="absolute bottom-8 left-8 right-8 py-4 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-all flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed shadow-lg shadow-primary/20"
                             >
                                 {submitted ? "Message Sent!" : isLoading ? "Sending..." : "Send Message"}
                                 {!submitted && !isLoading && <Send size={18} />}

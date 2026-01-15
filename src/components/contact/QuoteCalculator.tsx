@@ -64,10 +64,10 @@ export default function QuoteCalculator() {
     };
 
     return (
-        <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 overflow-hidden relative">
+        <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 overflow-hidden relative h-full flex flex-col">
             <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
 
-            <div className="relative z-10">
+            <div className="relative z-10 flex flex-col flex-grow">
                 <div className="flex items-center gap-3 mb-8">
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
                         <Calculator size={24} />
@@ -147,7 +147,7 @@ export default function QuoteCalculator() {
                         {/* Action Button */}
                         <button
                             onClick={handleGetEstimate}
-                            className="w-full py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-all flex items-center justify-center gap-2 shadow-lg shadow-slate-900/20"
+                            className="w-full py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-all flex items-center justify-center gap-2 shadow-lg shadow-slate-900/20 mt-auto"
                         >
                             Get Estimate <ArrowRight size={18} />
                         </button>
