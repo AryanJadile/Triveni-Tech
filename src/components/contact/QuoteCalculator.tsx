@@ -185,6 +185,7 @@ export default function QuoteCalculator() {
                                 <input
                                     type="text"
                                     name="organization"
+                                    required
                                     className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none"
                                     placeholder="Company Ltd."
                                 />

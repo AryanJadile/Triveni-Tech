@@ -18,7 +18,10 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                     {/* Brand Column */}
                     <div className="space-y-4">
-                        <h3 className="text-2xl font-bold text-white">Triveni Tech</h3>
+                        <div className="flex items-center gap-3">
+                            <img src="/img/logo.jpg" alt="Triveni Tech Logo" className="w-10 h-10 rounded-full object-cover border-2 border-primary/20" />
+                            <h3 className="text-2xl font-bold text-white">Triveni Tech</h3>
+                        </div>
                         <p className="text-slate-400 text-sm leading-relaxed">
                             Empowering businesses with cutting-edge technology solutions.
                             We build scalable, robust, and beautiful digital experiences.
