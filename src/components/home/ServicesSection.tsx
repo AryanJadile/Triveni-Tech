@@ -106,6 +106,7 @@ export default function ServicesSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: index * 0.1, duration: 0.5 }}
+                            className="h-full"
                         >
                             <ServiceCard
                                 icon={service.icon}
@@ -114,6 +115,7 @@ export default function ServicesSection() {
                                 details={service.details}
                                 isExpanded={expandedIndex === index}
                                 onToggle={() => handleToggle(index)}
+                                className="h-full"
                             />
                         </motion.div>
                     ))}
