@@ -91,6 +91,12 @@ export default function QuoteCalculator() {
                         <p className="text-slate-600">
                             We have received your requirements. Our team will analyze them and send you a detailed estimate shortly.
                         </p>
+                        <button
+                            onClick={() => setSubmitted(false)}
+                            className="mt-6 px-6 py-2 bg-white border border-green-200 text-green-700 font-semibold rounded-lg hover:bg-green-100 transition-colors shadow-sm"
+                        >
+                            Get Another Estimate
+                        </button>
                     </motion.div>
                 ) : (
                     <>
