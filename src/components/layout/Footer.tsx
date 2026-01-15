@@ -150,7 +150,7 @@ function SocialLink({ icon, label, href, color }: { icon: React.ReactNode; label
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 group p-3 rounded-xl bg-slate-800/50 hover:bg-slate-800 transition-all duration-300 border border-slate-700 hover:border-slate-600"
+            className="flex items-center gap-3 group p-1 transition-all duration-300"
         >
             <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white shadow-lg ${color} group-hover:scale-110 transition-transform duration-300`}>
                 {icon}
