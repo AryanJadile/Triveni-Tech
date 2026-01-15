@@ -11,7 +11,7 @@ const testimonials = [
         image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
     },
     {
-        name: "Priya Patel",
+        name: "Snehal Deshmukh",
         role: "Founder, GreenLeaf",
         content: "The best agency we've worked with. They understood our vision perfectly and created a stunning website that has significantly increased our sales.",
         image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80"
