@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin as supabase } from "@/lib/supabase-admin";
 import { format } from "date-fns";
 import { Briefcase, Calendar, Download, Mail, Phone, School, User } from "lucide-react";
 

@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabase";
+import { supabaseAdmin as supabase } from "@/lib/supabase-admin";
 import { Users, MessageSquare, Briefcase, TrendingUp } from "lucide-react";
 import Link from "next/link";
 
