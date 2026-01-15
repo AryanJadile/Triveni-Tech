@@ -121,7 +121,7 @@ export default function Footer() {
 
                 <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-slate-500">
                     <p>&copy; 2025 Triveni Tech. All rights reserved.</p>
-                    <div className="flex gap-6 mt-4 md:mt-0">
+                    <div className="flex gap-6 mt-4 md:mt-0 md:mr-24">
                         <Link href="/privacy" className="hover:text-[#f0f8ff] hover:scale-105 inline-block transition-all">Privacy Policy</Link>
                         <Link href="/terms" className="hover:text-[#f0f8ff] hover:scale-105 inline-block transition-all">Terms of Service</Link>
                     </div>
