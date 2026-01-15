@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Send } from "lucide-react";
 import { useState } from "react";
 
 export default function ContactPage() {
@@ -82,15 +82,7 @@ export default function ContactPage() {
                                     </div>
                                 </div>
 
-                                <div className="flex items-start gap-4">
-                                    <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary shrink-0">
-                                        <Phone size={20} />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-semibold text-slate-900">Call Us</h4>
-                                        <p className="text-slate-600">+91 8087918306</p>
-                                    </div>
-                                </div>
+
 
                                 <div className="flex items-start gap-4">
                                     <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary shrink-0">
@@ -105,7 +97,11 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h4 className="font-semibold text-slate-900">WhatsApp</h4>
-                                        <a href="https://wa.me/+919922398791" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-primary transition-colors">+91 99223 98791</a>
+                                        <div className="flex items-center gap-2 text-slate-600 flex-wrap">
+                                            <a href="https://wa.me/+918087918306" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">+91 80879 18306</a>
+                                            <span>\</span>
+                                            <a href="https://wa.me/+919922398791" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">+91 99223 98791</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -122,6 +118,7 @@ export default function ContactPage() {
                                     required
                                     className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                                     placeholder="Your Name"
+                                    suppressHydrationWarning
                                 />
                             </div>
                             <div>
@@ -131,6 +128,7 @@ export default function ContactPage() {
                                     required
                                     className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                                     placeholder="john@example.com"
+                                    suppressHydrationWarning
                                 />
                             </div>
                             <div>
@@ -140,6 +138,7 @@ export default function ContactPage() {
                                     rows={4}
                                     className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
                                     placeholder="How can we help you?"
+                                    suppressHydrationWarning
                                 ></textarea>
                             </div>
 

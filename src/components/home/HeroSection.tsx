@@ -18,8 +18,30 @@ export default function HeroSection() {
     return (
         <section className="relative overflow-hidden bg-slate-50 py-20 lg:py-32">
             {/* Background Decor */}
-            <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
-            <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/4 w-[600px] h-[600px] bg-blue-100 rounded-full blur-3xl opacity-70" />
+            <motion.div
+                animate={{
+                    y: [0, -20, 0],
+                    scale: [1, 1.05, 1],
+                }}
+                transition={{
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                }}
+                className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl"
+            />
+            <motion.div
+                animate={{
+                    y: [0, 20, 0],
+                    scale: [1, 1.1, 1],
+                }}
+                transition={{
+                    duration: 10,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                }}
+                className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/4 w-[600px] h-[600px] bg-blue-100 rounded-full blur-3xl opacity-70"
+            />
 
             <div className="container mx-auto px-4 md:px-6 relative z-10">
                 <div className="max-w-4xl mx-auto text-center">

@@ -119,7 +119,7 @@ export default function AboutPage() {
             <section className="py-20 bg-secondary text-white">
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                        <StatItem number="100+" label="Projects Completed" />
+                        <StatItem number="60+" label="Projects Completed" />
                         <StatItem number="50+" label="Happy Clients" />
                         <StatItem number="2+" label="Years Experience" />
                         <StatItem number="24/7" label="Support" />

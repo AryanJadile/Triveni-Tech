@@ -5,6 +5,7 @@ import { CheckCircle2, Code, Laptop, UserCheck, Calendar, BookOpen } from "lucid
 import Link from "next/link";
 import { ScrollReveal, PopIn } from "@/components/ui/ScrollReveal";
 import InternshipForm from "@/components/internships/InternshipForm";
+import StudentTestimonialsSection from "@/components/internships/StudentTestimonialsSection";
 
 /**
  * Internships Page
@@ -85,6 +86,9 @@ export default function InternshipsPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Student Testimonials */}
+            <StudentTestimonialsSection />
 
             {/* Benefits Section */}
             <section className="py-20 bg-slate-50">

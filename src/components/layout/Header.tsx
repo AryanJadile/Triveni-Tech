@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
@@ -14,8 +15,8 @@ const navItems = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
     { name: "Services", href: "/#services" },
+    { name: "Portfolio", href: "/portfolio" },
     { name: "Internships", href: "/internships" },
-    { name: "Contact", href: "/contact" },
 ];
 
 /**
@@ -62,7 +63,7 @@ export default function Header() {
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-3">
                     <div className="relative w-12 h-12 rounded-lg overflow-hidden shrink-0">
-                        <img src="/img/logo.jpg" alt="Triveni Tech Logo" className="object-cover w-full h-full" />
+                        <Image src="/img/logo.jpg" alt="Triveni Tech Logo" fill className="object-cover" />
                     </div>
                     <span className="text-xl font-bold text-secondary leading-none">
                         Triveni Tech
@@ -81,10 +82,10 @@ export default function Header() {
                         </Link>
                     ))}
                     <Link
-                        href="/quote"
-                        className="px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
+                        href="/contact"
+                        className="px-5 py-2.5 bg-secondary text-white text-sm font-semibold rounded-full hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20"
                     >
-                        Get Started
+                        Contact Us
                     </Link>
                 </nav>
 
@@ -119,11 +120,11 @@ export default function Header() {
                                 </Link>
                             ))}
                             <Link
-                                href="/quote"
+                                href="/contact"
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="mt-4 w-full py-3 bg-primary text-white text-center font-semibold rounded-lg hover:bg-primary/90"
+                                className="mt-4 w-full py-3 bg-secondary text-white text-center font-semibold rounded-lg hover:bg-secondary/90"
                             >
-                                Get Started
+                                Contact Us
                             </Link>
                         </div>
                     </motion.div>
