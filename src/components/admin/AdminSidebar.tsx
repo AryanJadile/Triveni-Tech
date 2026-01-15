@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { LayoutDashboard, MessageSquare, FileText, Briefcase, LogOut, Menu, X } from "lucide-react";
@@ -41,10 +42,18 @@ export default function AdminSidebar() {
             `}>
                 <div className="p-6 border-b border-slate-800">
                     <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded bg-primary flex items-center justify-center text-white font-bold">
-                            T
+                        <div className="relative w-10 h-10 shrink-0">
+                            <Image
+                                src="/img/footer_logo_white.png"
+                                alt="Triveni Tech"
+                                fill
+                                className="object-contain"
+                            />
                         </div>
-                        <span className="text-white font-bold text-lg">Admin Panel</span>
+                        <div>
+                            <span className="text-white font-bold text-lg block leading-none">Triveni Tech</span>
+                            <span className="text-slate-500 text-xs font-medium uppercase tracking-wider">Admin Portal</span>
+                        </div>
                     </div>
                 </div>
 
