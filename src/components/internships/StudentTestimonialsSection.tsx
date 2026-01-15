@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
-import Image from "next/image";
 
 const studentTestimonials = [
     {
@@ -56,14 +55,6 @@ export default function StudentTestimonialsSection() {
                             </p>
 
                             <div className="flex items-center gap-4">
-                                <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0">
-                                    <Image
-                                        src={testimonial.image}
-                                        alt={testimonial.name}
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </div>
                                 <div>
                                     <h4 className="font-bold text-slate-900 text-sm">{testimonial.name}</h4>
                                     <p className="text-slate-500 text-xs">{testimonial.role}</p>
