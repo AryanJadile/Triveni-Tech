@@ -56,7 +56,7 @@ export default function PortfolioPage() {
                                     key={category}
                                     onClick={() => setActiveCategory(category)}
                                     className={`px-6 py-2 rounded-full font-medium transition-all ${activeCategory === category
-                                        ? "bg-primary text-white shadow-lg shadow-primary/25"
+                                        ? "bg-[#1c365f] text-white shadow-lg shadow-[#1c365f]/25"
                                         : "bg-slate-100 text-slate-600 hover:bg-slate-200"
                                         }`}
                                 >
@@ -90,19 +90,19 @@ export default function PortfolioPage() {
 
             {/* CTA Section */}
             <section className="py-12 px-4 md:px-6">
-                <div className="bg-secondary rounded-3xl py-20 text-white text-center shadow-xl mx-auto max-w-7xl overflow-hidden relative">
+                <div className="bg-[#f0f8ff] rounded-3xl py-20 text-center shadow-xl mx-auto max-w-7xl overflow-hidden relative">
                     {/* Background Pattern */}
-                    <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-primary/10 rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-64 h-64 bg-primary/10 rounded-full blur-2xl"></div>
+                    <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-[#1c365f]/5 rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-64 h-64 bg-[#1c365f]/5 rounded-full blur-2xl"></div>
 
                     <div className="relative z-10 container mx-auto px-4">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6">Have a project in mind?</h2>
-                        <p className="text-slate-300 text-lg max-w-2xl mx-auto mb-10">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#1c365f]">Have a project in mind?</h2>
+                        <p className="text-slate-600 text-lg max-w-2xl mx-auto mb-10">
                             Let's collaborate to bring your ideas to life. Our team is ready to start building.
                         </p>
                         <a
                             href="/contact"
-                            className="inline-block px-8 py-4 bg-primary text-white font-bold rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 transform hover:-translate-y-1"
+                            className="inline-block px-8 py-4 bg-[#1c365f] text-white font-bold rounded-full hover:bg-[#1c365f]/90 transition-all shadow-lg shadow-[#1c365f]/25 transform hover:-translate-y-1"
                         >
                             Start Your Project
                         </a>

@@ -46,15 +46,15 @@ export default function StudentTestimonialsSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className="bg-slate-50 p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative"
+                            className="bg-slate-50 p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative flex flex-col h-full"
                         >
                             <Quote className="absolute top-8 right-8 text-slate-200" size={48} />
 
-                            <p className="text-slate-600 mb-8 relative z-10 leading-relaxed">
+                            <p className="text-slate-600 mb-8 relative z-10 leading-relaxed flex-1">
                                 "{testimonial.content}"
                             </p>
 
-                            <div className="flex items-center gap-4">
+                            <div className="flex items-center gap-4 mt-auto">
                                 <div>
                                     <h4 className="font-bold text-slate-900 text-sm">{testimonial.name}</h4>
                                     <p className="text-slate-500 text-xs">{testimonial.role}</p>

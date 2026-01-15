@@ -69,7 +69,7 @@ export default function FloatingContactButton() {
 
             <button
                 onClick={toggleOpen}
-                className={`w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 ${isOpen ? "bg-slate-800 rotate-45" : "bg-primary hover:scale-105"
+                className={`w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 ${isOpen ? "bg-slate-800 rotate-45" : "bg-[#22457d] hover:scale-105"
                     }`}
             >
                 {isOpen ? (

@@ -116,13 +116,35 @@ export default function AboutPage() {
             </section>
 
             {/* Stats Section */}
-            <section className="py-20 bg-secondary text-white">
+            <section className="py-20 bg-white">
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                         <StatItem number="60+" label="Projects Completed" />
                         <StatItem number="50+" label="Happy Clients" />
                         <StatItem number="2+" label="Years Experience" />
                         <StatItem number="24/7" label="Support" />
+                    </div>
+                </div>
+            </section>
+
+            {/* CTA Section */}
+            <section className="py-12 px-4 md:px-6">
+                <div className="bg-[#f0f8ff] rounded-3xl py-20 text-center shadow-xl mx-auto max-w-7xl overflow-hidden relative">
+                    {/* Background Pattern */}
+                    <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-96 h-96 bg-[#1c365f]/5 rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-64 h-64 bg-[#1c365f]/5 rounded-full blur-2xl"></div>
+
+                    <div className="relative z-10 container mx-auto px-4">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#1c365f]">Ready to innovate?</h2>
+                        <p className="text-slate-600 text-lg max-w-2xl mx-auto mb-10">
+                            Join us on our journey to shape the future of technology. Whether you're a client or a future team member, we'd love to hear from you.
+                        </p>
+                        <a
+                            href="/contact"
+                            className="inline-block px-8 py-4 bg-[#1c365f] text-white font-bold rounded-full hover:bg-[#1c365f]/90 transition-all shadow-lg shadow-[#1c365f]/25 transform hover:-translate-y-1"
+                        >
+                            Get in Touch
+                        </a>
                     </div>
                 </div>
             </section>
@@ -147,8 +169,8 @@ function FeatureCard({ title, desc }: { title: string; desc: string }) {
 function StatItem({ number, label }: { number: string; label: string }) {
     return (
         <div>
-            <div className="text-4xl md:text-5xl font-bold text-primary mb-2">{number}</div>
-            <div className="text-slate-300 font-medium">{label}</div>
+            <div className="text-4xl md:text-5xl font-bold text-[#1c365f] mb-2">{number}</div>
+            <div className="text-[#1c365f] font-medium">{label}</div>
         </div>
     )
 }

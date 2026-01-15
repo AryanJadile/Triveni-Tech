@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronRight } from "lucide-react";
@@ -19,48 +20,22 @@ const navItems = [
     { name: "Internships", href: "/internships" },
 ];
 
-/**
- * Header Component
- *
- * This component renders the main navigation bar of the application.
- * It includes:
- * - Responsive design (Desktop vs Mobile menu)
- * - Scroll-aware background styling (transparent to white/glassmorphism)
- * - Logo and Brand Name
- * - Navigation Links
- * - "Get Started" Call-to-Action
- */
 export default function Header() {
-    // State to track if the user has scrolled down to apply styles
+    const pathname = usePathname(); // Get current path
     const [isScrolled, setIsScrolled] = useState(false);
-    // State to toggle the mobile menu visibility
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-    /**
-     * Scroll Effect Hook
-     * Adds a scroll listener to update the `isScrolled` state when the user scrolls past 10px.
-     * This triggers the background color change in the header.
-     */
-    useEffect(() => {
-        const handleScroll = () => {
-            setIsScrolled(window.scrollY > 10);
-        };
-        window.addEventListener("scroll", handleScroll);
-        // Clean up the event listener on component unmount
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    // ... (useEffect)
 
     return (
         <header
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
-                isScrolled
-                    ? "bg-white border-gray-200 py-3 shadow-sm"
-                    : "bg-transparent border-transparent py-5"
+                "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b bg-white border-gray-200 py-3 shadow-sm"
             )}
         >
             <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
                 {/* Logo */}
+                {/* ... */}
                 <Link href="/" className="flex items-center gap-3">
                     <div className="relative w-12 h-12 rounded-lg overflow-hidden shrink-0">
                         <Image src="/img/logo.jpg" alt="Triveni Tech Logo" fill className="object-cover" />
@@ -72,15 +47,23 @@ export default function Header() {
 
                 {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center gap-8">
-                    {navItems.map((item) => (
-                        <Link
-                            key={item.name}
-                            href={item.href}
-                            className="text-sm font-medium text-slate-700 hover:text-primary transition-colors hover:bg-slate-50 px-3 py-2 rounded-md"
-                        >
-                            {item.name}
-                        </Link>
-                    ))}
+                    {navItems.map((item) => {
+                        const isActive = pathname === item.href;
+                        return (
+                            <Link
+                                key={item.name}
+                                href={item.href}
+                                className={cn(
+                                    "text-sm font-medium transition-colors px-3 py-2 rounded-md",
+                                    isActive
+                                        ? "text-[#1c365f] font-bold bg-slate-50"
+                                        : "text-slate-700 hover:text-primary hover:bg-slate-50"
+                                )}
+                            >
+                                {item.name}
+                            </Link>
+                        );
+                    })}
                     <Link
                         href="/contact"
                         className="px-5 py-2.5 bg-secondary text-white text-sm font-semibold rounded-full hover:bg-secondary/90 transition-all shadow-lg shadow-secondary/20"
@@ -90,6 +73,7 @@ export default function Header() {
                 </nav>
 
                 {/* Mobile Toggle */}
+                {/* ... */}
                 <button
                     className="md:hidden p-2 text-slate-700"
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -108,17 +92,25 @@ export default function Header() {
                         className="md:hidden overflow-hidden bg-white border-b border-gray-100"
                     >
                         <div className="container mx-auto px-4 py-4 flex flex-col gap-2">
-                            {navItems.map((item) => (
-                                <Link
-                                    key={item.name}
-                                    href={item.href}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="flex items-center justify-between p-3 rounded-lg hover:bg-slate-50 text-slate-700 font-medium"
-                                >
-                                    {item.name}
-                                    <ChevronRight size={16} className="text-slate-400" />
-                                </Link>
-                            ))}
+                            {navItems.map((item) => {
+                                const isActive = pathname === item.href;
+                                return (
+                                    <Link
+                                        key={item.name}
+                                        href={item.href}
+                                        onClick={() => setMobileMenuOpen(false)}
+                                        className={cn(
+                                            "flex items-center justify-between p-3 rounded-lg font-medium",
+                                            isActive
+                                                ? "bg-slate-50 text-[#1c365f] font-bold"
+                                                : "hover:bg-slate-50 text-slate-700"
+                                        )}
+                                    >
+                                        {item.name}
+                                        <ChevronRight size={16} className={cn("text-slate-400", isActive && "text-[#1c365f]")} />
+                                    </Link>
+                                );
+                            })}
                             <Link
                                 href="/contact"
                                 onClick={() => setMobileMenuOpen(false)}

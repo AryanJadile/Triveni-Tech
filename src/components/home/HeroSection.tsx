@@ -64,7 +64,7 @@ export default function HeroSection() {
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <Link
                                 href="/contact"
-                                className="w-full sm:w-auto px-8 py-4 bg-primary text-white rounded-full font-semibold hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 flex items-center justify-center gap-2"
+                                className="w-full sm:w-auto px-8 py-4 bg-[#1c365f] text-white rounded-full font-semibold hover:bg-[#1c365f]/90 transition-all shadow-lg shadow-[#1c365f]/25 flex items-center justify-center gap-2"
                             >
                                 Start Your Project <ArrowRight size={18} />
                             </Link>
@@ -90,7 +90,7 @@ export default function HeroSection() {
                             desc="Modern, responsive websites using Next.js and React."
                         />
                         <FeatureItem
-                            icon={<Smartphone className="text-blue-600" size={24} />}
+                            icon={<Smartphone className="text-primary" size={24} />}
                             title="App Development"
                             desc="Cross-platform mobile apps for iOS and Android."
                         />
