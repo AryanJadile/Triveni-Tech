@@ -65,7 +65,7 @@ export default function QuoteCalculator() {
 
     return (
         <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-100 overflow-hidden relative h-full flex flex-col">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+
 
             <div className="relative z-10 flex flex-col flex-grow">
                 <div className="flex items-center gap-3 mb-8">

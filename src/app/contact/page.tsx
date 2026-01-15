@@ -57,7 +57,7 @@ export default function ContactPage() {
                     </div>
 
                     {/* Contact Form */}
-                    <div className="bg-white p-8 pb-28 rounded-2xl shadow-sm border border-slate-100 h-full relative">
+                    <div className="bg-white p-8 pb-28 rounded-2xl shadow-lg border border-slate-100 h-full relative">
                         <form onSubmit={handleSubmit} className="space-y-6 h-full">
                             <div>
                                 <label className="block text-sm font-medium text-slate-700 mb-2">Name</label>
@@ -83,8 +83,8 @@ export default function ContactPage() {
                                 <label className="block text-sm font-medium text-slate-700 mb-2">Message</label>
                                 <textarea
                                     required
-                                    rows={4}
-                                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                                    rows={8}
+                                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all resize-none"
                                     placeholder="How can we help you?"
                                     suppressHydrationWarning
                                 ></textarea>
