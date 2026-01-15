@@ -26,7 +26,7 @@ export default function FloatingContactButton() {
         {
             icon: <Phone size={24} />,
             label: "Call Now",
-            href: "tel:+918087918306",
+            href: "tel:+919922398791",
             color: "bg-blue-500",
             delay: 0.05
         },
