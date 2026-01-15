@@ -211,7 +211,7 @@ export default function QuoteCalculator() {
                                 disabled={isLoading}
                                 className="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-all disabled:opacity-70"
                             >
-                                {isLoading ? "Processing..." : "Show My Estimate"}
+                                {isLoading ? "Processing..." : "Submit"}
                             </button>
                         </form>
                     </motion.div>
