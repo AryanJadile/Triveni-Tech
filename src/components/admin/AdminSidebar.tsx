@@ -1,0 +1,60 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { LayoutDashboard, MessageSquare, FileText, Briefcase, LogOut } from "lucide-react";
+
+const links = [
+    { href: "/admin-portal-secure", label: "Dashboard", icon: LayoutDashboard },
+    { href: "/admin-portal-secure/quotes", label: "Quote Requests", icon: FileText },
+    { href: "/admin-portal-secure/messages", label: "Contact Messages", icon: MessageSquare },
+    { href: "/admin-portal-secure/internships", label: "Internships", icon: Briefcase },
+];
+
+export default function AdminSidebar() {
+    const pathname = usePathname();
+
+    return (
+        <aside className="w-64 bg-slate-900 text-slate-300 min-h-screen flex flex-col fixed left-0 top-0 bottom-0 z-50">
+            <div className="p-6 border-b border-slate-800">
+                <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded bg-primary flex items-center justify-center text-white font-bold">
+                        T
+                    </div>
+                    <span className="text-white font-bold text-lg">Admin Panel</span>
+                </div>
+            </div>
+
+            <nav className="flex-grow p-4 space-y-2 overflow-y-auto">
+                {links.map((link) => {
+                    const Icon = link.icon;
+                    const isActive = pathname === link.href;
+
+                    return (
+                        <Link
+                            key={link.href}
+                            href={link.href}
+                            className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all ${isActive
+                                ? "bg-primary text-white shadow-lg shadow-primary/25"
+                                : "hover:bg-slate-800 hover:text-white"
+                                }`}
+                        >
+                            <Icon size={20} />
+                            <span className="font-medium">{link.label}</span>
+                        </Link>
+                    );
+                })}
+            </nav>
+
+            <div className="p-4 border-t border-slate-800">
+                <Link
+                    href="/"
+                    className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-all"
+                >
+                    <LogOut size={20} />
+                    <span className="font-medium">Exit to Website</span>
+                </Link>
+            </div>
+        </aside>
+    );
+}
