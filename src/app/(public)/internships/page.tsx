@@ -54,7 +54,7 @@ export default function InternshipsPage() {
                                 <h2 className="text-3xl font-bold text-secondary mb-8 flex items-center gap-3">
                                     <Laptop className="text-primary" /> Internship Highlights
                                 </h2>
-                                <ul className="space-y-6">
+                                <ul className="space-y-6 ml-8">
                                     <HighlightItem text="Mentorship from Industry Experts" />
                                     <HighlightItem text="Internship Certificate + Project Report" />
                                     <HighlightItem text="Resume & Interview Preparation" />
