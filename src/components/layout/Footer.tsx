@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Twitter, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, Linkedin, Mail, MapPin } from "lucide-react";
 
 /**
  * Footer Component
@@ -26,10 +26,7 @@ export default function Footer() {
                             Empowering businesses with cutting-edge technology solutions.
                             We build scalable, robust, and beautiful digital experiences.
                         </p>
-                        <div className="flex items-center gap-4 pt-2">
-                            <SocialIcon icon={<Instagram size={18} />} href="https://www.instagram.com/triveni_tech2025/" />
-                            <SocialIcon icon={<Linkedin size={18} />} href="https://www.linkedin.com/company/triveni-tech/" />
-                        </div>
+
                     </div>
 
                     {/* Quick Links */}
@@ -44,16 +41,23 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Services */}
+                    {/* Connect With Us */}
                     <div>
-                        <h4 className="text-lg font-semibold text-white mb-6">Our Services</h4>
-                        <ul className="space-y-3 text-sm">
-                            <FooterLink href="#">Web Development</FooterLink>
-                            <FooterLink href="#">App Development</FooterLink>
-                            <FooterLink href="#">UI/UX Design</FooterLink>
-                            <FooterLink href="#">Digital Marketing</FooterLink>
-                            <FooterLink href="#">Cloud Solutions</FooterLink>
-                        </ul>
+                        <h4 className="text-lg font-semibold text-white mb-6">Connect With Us</h4>
+                        <div className="flex flex-col gap-4">
+                            <SocialLink
+                                icon={<Instagram size={20} />}
+                                label="Instagram"
+                                href="https://www.instagram.com/triveni_tech2025/"
+                                color="bg-gradient-to-br from-purple-500 via-pink-500 to-orange-500"
+                            />
+                            <SocialLink
+                                icon={<Linkedin size={20} />}
+                                label="LinkedIn"
+                                href="https://www.linkedin.com/company/triveni-tech/"
+                                color="bg-[#0077b5]"
+                            />
+                        </div>
                     </div>
 
                     {/* Contact Info */}
@@ -127,16 +131,7 @@ export default function Footer() {
     );
 }
 
-function SocialIcon({ icon, href }: { icon: React.ReactNode; href: string }) {
-    return (
-        <Link
-            href={href}
-            className="p-2 bg-slate-800 rounded-full hover:bg-primary hover:text-white transition-all duration-300"
-        >
-            {icon}
-        </Link>
-    );
-}
+
 
 function FooterLink({ href, children }: { href: string; children: React.ReactNode }) {
     return (
@@ -146,5 +141,23 @@ function FooterLink({ href, children }: { href: string; children: React.ReactNod
                 {children}
             </Link>
         </li>
+    );
+}
+
+function SocialLink({ icon, label, href, color }: { icon: React.ReactNode; label: string; href: string; color: string }) {
+    return (
+        <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-3 group p-3 rounded-xl bg-slate-800/50 hover:bg-slate-800 transition-all duration-300 border border-slate-700 hover:border-slate-600"
+        >
+            <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white shadow-lg ${color} group-hover:scale-110 transition-transform duration-300`}>
+                {icon}
+            </div>
+            <span className="font-medium text-slate-300 group-hover:text-white transition-colors">
+                {label}
+            </span>
+        </a>
     );
 }
