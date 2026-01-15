@@ -17,7 +17,7 @@ export default function ProjectCard({ title, category, description, image, link 
     return (
         <motion.div
             whileHover={{ y: -5 }}
-            className="group relative overflow-hidden bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300"
+            className="group relative overflow-hidden bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 h-full flex flex-col"
         >
             {/* Image Container */}
             <div className="relative h-64 overflow-hidden">
