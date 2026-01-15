@@ -36,7 +36,7 @@ export default function InternshipsPage() {
                             e.preventDefault();
                             document.getElementById('apply-form')?.scrollIntoView({ behavior: 'smooth' });
                         }}
-                        className="inline-block px-8 py-3 bg-primary text-white font-semibold rounded-full hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
+                        className="inline-block px-8 py-3 bg-[#22457d] text-white font-semibold rounded-full hover:bg-[#22457d]/90 transition-all shadow-lg shadow-[#22457d]/20"
                     >
                         Apply Now
                     </Link>
