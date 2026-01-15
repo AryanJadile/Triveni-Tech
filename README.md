@@ -88,7 +88,18 @@ To make this project yours, you need to replace the placeholder keys with ones f
     *   Copy the **Project URL**. Paste it into `NEXT_PUBLIC_SUPABASE_URL`.
     *   Copy the **anon public** key. Paste it into `NEXT_PUBLIC_SUPABASE_ANON_KEY`.
     *   **CRITICAL**: Scroll down (or look for "service_role") to find the **service_role secret** key. Copy this and paste it into `SUPABASE_SERVICE_ROLE_KEY`. **Do not share this key publicly.**
-5.  **Create Tables**: Go to the SQL Editor in Supabase and run the provided schema scripts (located in `src/lib/schema.sql` if available, or manually create `contact_messages`, `quote_requests`, and `internship_applications` tables).
+5.  **Create Tables & Policies (Automated)**:
+    *   This project exports a complete SQL schema file at `src/lib/schema.sql`.
+    *   Open `src/lib/schema.sql` in your code editor.
+    *   Copy the entire content.
+    *   Go to your Supabase Dashboard -> **SQL Editor**.
+    *   Paste the code and click **Run**.
+    *   This will automatically create:
+        *   `contact_messages` table.
+        *   `quote_requests` table.
+        *   `internship_applications` table.
+        *   `resumes` storage bucket.
+        *   All necessary Row Level Security (RLS) policies.
 
 ### 2. Resend (Email Notifications)
 1.  Go to [Resend.com](https://resend.com) and Sign Up.
