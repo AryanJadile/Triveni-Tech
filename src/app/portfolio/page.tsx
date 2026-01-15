@@ -1,6 +1,7 @@
 "use client";
 
 import ProjectCard from "@/components/portfolio/ProjectCard";
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 const projects = [
@@ -19,6 +20,14 @@ const projects = [
 ];
 
 export default function PortfolioPage() {
+    const [activeCategory, setActiveCategory] = useState("All");
+
+    const categories = ["All", "Web Application", "Digital Marketing"];
+
+    const filteredProjects = activeCategory === "All"
+        ? projects
+        : projects.filter(project => project.category === activeCategory);
+
     return (
         <div className="min-h-screen bg-slate-50">
             {/* Hero Section */}
@@ -36,9 +45,25 @@ export default function PortfolioPage() {
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
                             Building Digital <span className="text-primary">Masterpieces</span>
                         </h1>
-                        <p className="text-lg text-slate-600 leading-relaxed">
+                        <p className="text-lg text-slate-600 leading-relaxed mb-10">
                             Explore our portfolio of successful projects. We combine creativity with technical excellence to deliver results that matter.
                         </p>
+
+                        {/* Filter Buttons */}
+                        <div className="flex flex-wrap justify-center gap-3">
+                            {categories.map((category) => (
+                                <button
+                                    key={category}
+                                    onClick={() => setActiveCategory(category)}
+                                    className={`px-6 py-2 rounded-full font-medium transition-all ${activeCategory === category
+                                        ? "bg-primary text-white shadow-lg shadow-primary/25"
+                                        : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                                        }`}
+                                >
+                                    {category}
+                                </button>
+                            ))}
+                        </div>
                     </motion.div>
                 </div>
             </section>
@@ -47,13 +72,14 @@ export default function PortfolioPage() {
             <section className="py-20">
                 <div className="container mx-auto px-4 md:px-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {projects.map((project, index) => (
+                        {filteredProjects.map((project, index) => (
                             <motion.div
                                 key={index}
+                                layout
                                 initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                exit={{ opacity: 0, y: 20 }}
+                                transition={{ duration: 0.5 }}
                             >
                                 <ProjectCard {...project} />
                             </motion.div>
