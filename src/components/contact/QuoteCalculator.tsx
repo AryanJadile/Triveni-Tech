@@ -147,7 +147,7 @@ export default function QuoteCalculator() {
                         {/* Action Button */}
                         <button
                             onClick={handleGetEstimate}
-                            className="w-full py-4 bg-slate-900 text-white font-bold rounded-xl hover:bg-slate-800 transition-all flex items-center justify-center gap-2 shadow-lg shadow-slate-900/20 mt-auto"
+                            className="w-full py-4 bg-[#1c365f] text-white font-bold rounded-xl hover:bg-[#1c365f]/90 transition-all flex items-center justify-center gap-2 shadow-lg shadow-[#1c365f]/20 mt-auto"
                         >
                             Get Estimate <ArrowRight size={18} />
                         </button>
